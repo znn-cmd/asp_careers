@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 
+export const dynamic = "force-dynamic";
+
 import { SmoothScrollProvider } from "@/components/providers/smooth-scroll-provider";
 import { AcademySection } from "@/components/careers/academy";
 import { ApplicationForm } from "@/components/careers/application-form";

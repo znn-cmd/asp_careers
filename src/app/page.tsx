@@ -1,5 +1,2 @@
-import CareersPage from "./careers/page";
-
-export default function Home() {
-  return <CareersPage />;
-}
+export { metadata } from "./careers/page";
+export { default } from "./careers/page";

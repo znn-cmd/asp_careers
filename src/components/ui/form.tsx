@@ -1,13 +1,22 @@
 import * as React from "react";
 import * as LabelPrimitive from "@radix-ui/react-label";
-import { Controller, type ControllerProps, FormProvider } from "react-hook-form";
+import {
+  Controller,
+  type ControllerProps,
+  FormProvider,
+  type FieldValues,
+  type Path,
+} from "react-hook-form";
 import { Slot } from "@radix-ui/react-slot";
 
 import { cn } from "@/lib/utils";
 
 const Form = FormProvider;
 
-const FormField = <TFieldValues, TName extends string>(
+const FormField = <
+  TFieldValues extends FieldValues,
+  TName extends Path<TFieldValues>,
+>(
   props: ControllerProps<TFieldValues, TName>,
 ) => {
   return (
@@ -75,7 +84,7 @@ const FormMessage = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, children, ...props }, ref) => {
-  const body = children ?? props.children;
+  const body = children ?? null;
 
   if (!body) {
     return null;

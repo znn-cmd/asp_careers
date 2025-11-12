@@ -2,9 +2,8 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
-import useEmblaCarousel, {
-  type EmblaCarouselType,
-} from "embla-carousel-react";
+import type { EmblaCarouselType } from "embla-carousel";
+import useEmblaCarousel from "embla-carousel-react";
 import { motion } from "framer-motion";
 
 import { fadeUp, staggerChildren } from "./animations";
@@ -87,7 +86,7 @@ function GalleryCarousel({
   );
   const [isHovered, setIsHovered] = useState(false);
 
-  useAutoplay(emblaApi as EmblaCarouselType | undefined, !isHovered);
+  useAutoplay(emblaApi, !isHovered);
 
   const onMouseEnter = useCallback(() => setIsHovered(true), []);
   const onMouseLeave = useCallback(() => setIsHovered(false), []);
